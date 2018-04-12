@@ -35,7 +35,7 @@ Repositories defined in [requirements-dev](requirements-dev)
   * fluentd
   * elasticsearch
   * kibana
-  * `nginx <https://github.com/pli01/docker-nginx/>`__
+  * [nginx](https://github.com/pli01/docker-nginx/)
   * service-config
   
 - `nginx <https://github.com/pli01/docker-nginx>`__
