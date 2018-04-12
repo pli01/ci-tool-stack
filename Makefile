@@ -28,6 +28,12 @@ build-dev:
 
 build-image:
 	APP_ENV=$(APP_ENV) bash -x ./$(tools_dir)/build-image.sh $(PACKAGENAME) $(VERSION)
+test-image:
+	APP_ENV=$(APP_ENV) bash -x ./$(tools_dir)/test-image.sh $(PACKAGENAME) $(VERSION)
+push-image:
+	APP_ENV=$(APP_ENV) bash -x ./$(tools_dir)/push-image.sh $(PACKAGENAME) $(VERSION)
+publish-image:
+	APP_ENV=$(APP_ENV) bash -x ./$(tools_dir)/publish-image.sh $(PACKAGENAME) $(VERSION)
 
 test:
 	APP_ENV=$(APP_ENV) bash -x ./$(tools_dir)/test.sh $(PACKAGENAME) $(VERSION)

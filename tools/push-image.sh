@@ -16,9 +16,9 @@
 #PYPI_HOST=$REPOSITORY_HOST
 #export MIRROR_DEBIAN MIRROR_DOCKER MIRROR_DOCKER_COMPOSE JENKINS_UC_URL PYPI_URL PYPI_HOST
 
-echo "# Build"
+echo "# Build & push"
 ( cd build/docker
   for image in * ; do
-    [ -d "$image" ] && ( cd $image && make rmi build clean-image -n )
+    [ -d "$image" ] && ( cd $image && make rmi build push clean-image -n )
   done
 )
