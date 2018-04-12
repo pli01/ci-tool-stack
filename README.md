@@ -27,15 +27,13 @@ Following repository contains services and infrastructures components
 
 ## Services
 All services are defined as docker images derived from official images
-Repositories defined in [requirements-dev](requirements-dev)
-  * jenkins
-  * gitlab-ce
-  * sonatype-nexus3
-  * logstash
-  * fluentd
-  * elasticsearch
-  * kibana
-  * [nginx](https://github.com/pli01/docker-nginx/)
-  * service-config
-  
-- `nginx <https://github.com/pli01/docker-nginx>`__
+Repositories are defined in [requirements-dev](requirements-dev)
+  * [jenkins] (https://github.com/pli01/docker-jenkins/)
+  * [gitlab-ce] (https://github.com/pli01/docker-gitlab-ce/)
+  * [sonatype-nexus3] (https://github.com/pli01/docker-sonatype-nexus3/)
+  * [logstash] (https://github.com/pli01/docker-logstash/)
+  * [fluentd] (https://github.com/pli01/docker-fluentd/)
+  * [elasticsearch] (https://github.com/pli01/docker-elasticsearch/)
+  * [kibana] (https://github.com/pli01/docker-kibana/)
+  * [service-config] (https://github.com/pli01/docker-service-config/)
+  * [nginx] (https://github.com/pli01/docker-nginx/)
