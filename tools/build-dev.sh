@@ -28,10 +28,10 @@ grep -v '^#' $requirements | awk  ' !  /^#/ { print $1, $2 } ' | while read name
   echo "# Extracted in build/$name"
 
   if [ -d "$APP_ENV/${name}" ]; then
-  echo "# Generate conf $APP_ENV/${name}"
-  find $APP_ENV/${name} -type f
+    echo "# Generate conf $APP_ENV/${name}"
+    find $APP_ENV/${name} -type f
 
-  ( cd ${APP_ENV}/${name} && find . -type f -print0 | tar cf - --null -T - ) | ( cd build/${name} && tar xvf -)
+    ( cd ${APP_ENV}/${name} && find . -type f -print0 | tar cf - --null -T - ) | ( cd build/${name} && tar xvf -)
   fi
 
 #  echo "# clean $filename"

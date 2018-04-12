@@ -26,6 +26,9 @@ build:
 build-dev:
 	APP_ENV=$(APP_ENV) bash -x ./$(tools_dir)/build-dev.sh $(PACKAGENAME) $(VERSION)
 
+build-image:
+	APP_ENV=$(APP_ENV) bash -x ./$(tools_dir)/build-image.sh $(PACKAGENAME) $(VERSION)
+
 test:
 	APP_ENV=$(APP_ENV) bash -x ./$(tools_dir)/test.sh $(PACKAGENAME) $(VERSION)
 
