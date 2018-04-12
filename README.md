@@ -27,7 +27,7 @@ Following repository contains services and infrastructures components
 
 ## Services
 All services are defined as docker images derived from official images
-Repositories defined in [/pli01/ci-tool-stack/requirements](requirements file)
+Repositories defined in (requirements)[requirements] file
   * jenkins
   * gitlab-ce
   * sonatype-nexus3
