@@ -37,3 +37,5 @@ Repositories defined in [requirements-dev](requirements-dev)
   * kibana
   * `nginx <https://github.com/pli01/docker-nginx/>`__
   * service-config
+  
+  - `nginx <https://github.com/pli01/docker-nginx>`__
