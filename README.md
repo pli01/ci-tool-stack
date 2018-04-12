@@ -15,14 +15,14 @@ This project is derived from "`docker-ci-tool-stack repository`" ideas
 
 ## Repository
 This repository is the root of the ci tool stack.
+It contains, build tools to generate all components and deploy
+
 Build steps will produce 3 directories
-  * docker
-  * ansible
-  * infra
+  * [docker](docker) Dockerfiles
+  * [ansible](ansible) roles and playbooks
+  * [infra](infra) infrastructure definition
 
-Following repository contains services and infrastructures components
-
-## Ressources:
+Repositores dependencies are defined [requirements](requirements) files, and contains services and infrastructures components
  * to build services
    * docker images
    * ansible roles and playbook to configure services
