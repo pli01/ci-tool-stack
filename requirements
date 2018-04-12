@@ -8,16 +8,16 @@ docker/logstash https://github.com/pli01/docker-logstash/archive/master.tar.gz
 docker/fluentd https://github.com/pli01/docker-fluentd/archive/master.tar.gz
 docker/elasticsearch https://github.com/pli01/docker-elasticsearch/archive/master.tar.gz
 docker/kibana https://github.com/pli01/docker-kibana/archive/master.tar.gz
-# role ansible
-ansible/nexus3-oss https://github.com/pli01/ansible-nexus3-oss/archive/master.tar.gz
-ansible/gitlab-config https://github.com/pli01/ansible-gitlab-config/archive/master.tar.gz
-ansible/ntp https://github.com/pli01/ansible-role-ntp/archive/master.tar.gz
-ansible/tinyproxy https://github.com/pli01/ansible-role-tinyproxy/archive/master.tar.gz
-ansible/docker-compose https://github.com/pli01/ansible-role-docker-compose/archive/master.tar.gz
-ansible/docker https://github.com/pli01/ansible-role-docker/archive/master.tar.gz
-ansible/systemd-service https://github.com/pli01/ansible-role-systemd-service/archive/master.tar.gz
 # service playbook
 ansible/docker-host https://github.com/pli01/ansible-docker-host/archive/master.tar.gz
 ansible/service-ci-tool-stack https://github.com/pli01/ansible-role-service-ci-tool-stack/archive/master.tar.gz
+# role ansible
+ansible/roles/nexus3-oss https://github.com/pli01/ansible-nexus3-oss/archive/master.tar.gz
+ansible/roles/gitlab-config https://github.com/pli01/ansible-gitlab-config/archive/master.tar.gz
+ansible/roles/ntp https://github.com/pli01/ansible-role-ntp/archive/master.tar.gz
+ansible/roles/tinyproxy https://github.com/pli01/ansible-role-tinyproxy/archive/master.tar.gz
+ansible/roles/docker-compose https://github.com/pli01/ansible-role-docker-compose/archive/master.tar.gz
+ansible/roles/docker https://github.com/pli01/ansible-role-docker/archive/master.tar.gz
+ansible/roles/systemd-service https://github.com/pli01/ansible-role-systemd-service/archive/master.tar.gz
 # infra
 infra/openstack-heat https://github.com/pli01/openstack-heat-templates/archive/master.tar.gz

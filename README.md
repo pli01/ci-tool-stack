@@ -1,6 +1,6 @@
 # ci-tool-stack
 This repository contains ressources needed for building and running a set of Continuous Integration Tools
-Services of the Continous Integration Plateform are defined as docker images, deploy on docker host
+Services of the Continous Integration Plateform are defined as docker images in docker-compose stack, deploy on docker hosts
 
 This project is derived from "`docker-ci-tool-stack repository`" ideas
 
@@ -44,27 +44,28 @@ Repositories dependencies are defined in [requirements-dev](requirements-dev)
   * [service-config](https://github.com/pli01/docker-service-config/)
   * [nginx](https://github.com/pli01/docker-nginx/)
 
-## Services Configuration and infrastructure
-Configuration and infrastructures component are defined in ansible roles
-
-### Services Configuration roles (nexus, gitlab)
-  * [nexus3-oss](https://github.com/pli01/ansible-nexus3-oss/)
-  * [gitlab-config](https://github.com/pli01/ansible-gitlab-config/)
-
-### Infrastructure configuration component (docker,ntp)
-  * [ntp](https://github.com/pli01/ansible-role-ntp/)
-  * [tinyproxy](https://github.com/pli01/ansible-role-tinyproxy/)
-  * [docker-compose](https://github.com/pli01/ansible-role-docker-compose/)
-  * [docker](https://github.com/pli01/ansible-role-docker/)
-  * [systemd-service](https://github.com/pli01/ansible-role-systemd-service/)
+### Infrastructure
+Services (docker images) are deployed in docker-compose stack on docker host
+Configuration and infrastructure components are defined in ansible roles and playbook
 
 ### Deployment roles (docker-host, docker-compose services stack)
-  * [docker-host](https://github.com/pli01/ansible-docker-host/)
-  * [service-ci-tool-stack](https://github.com/pli01/ansible-role-service-ci-tool-stack/)
+  * infrastructure [docker-host](https://github.com/pli01/ansible-docker-host/) : docker hosts roles
+  * services [service-ci-tool-stack](https://github.com/pli01/ansible-role-service-ci-tool-stack/) : services as docker-compose assignation on docker host
 
 ## Infrastructure definition
 Services are deployed through docker-compose stack on dockers hosts. 
 Those hosts are defined in heat stack in openstack cloud
   * [openstack-heat](https://github.com/pli01/openstack-heat-templates/)
+
+### Optional: Services configuration roles (nexus, gitlab)
+  * [nexus3-oss](https://github.com/pli01/ansible-nexus3-oss/)
+  * [gitlab-config](https://github.com/pli01/ansible-gitlab-config/)
+
+### Optional: Infrastructure configuration roles (docker,ntp)
+  * [ntp](https://github.com/pli01/ansible-role-ntp/)
+  * [tinyproxy](https://github.com/pli01/ansible-role-tinyproxy/)
+  * [docker-compose](https://github.com/pli01/ansible-role-docker-compose/)
+  * [docker](https://github.com/pli01/ansible-role-docker/)
+  * [systemd-service](https://github.com/pli01/ansible-role-systemd-service/)
 
 ## Configuration definition
