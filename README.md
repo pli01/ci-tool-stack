@@ -27,7 +27,7 @@ Following repository contains services and infrastructures components
 
 ## Services
 All services are defined as docker images derived from official images
-Repositories defined in (requirements)[requirements] file
+Repositories defined in [requirements-dev](requirements-dev)
   * jenkins
   * gitlab-ce
   * sonatype-nexus3
