@@ -1,0 +1,23 @@
+# image docker
+docker/nginx https://github.com/pli01/docker-nginx/
+docker/jenkins https://github.com/pli01/docker-jenkins/
+docker/gitlab-ce https://github.com/pli01/docker-gitlab-ce/
+docker/sonatype-nexus3 https://github.com/pli01/docker-sonatype-nexus3/
+docker/service-config https://github.com/pli01/docker-service-config/
+docker/logstash https://github.com/pli01/docker-logstash/
+docker/fluentd https://github.com/pli01/docker-fluentd/
+docker/elasticsearch https://github.com/pli01/docker-elasticsearch/
+docker/kibana https://github.com/pli01/docker-kibana/
+# role ansible
+ansible/nexus3-oss https://github.com/pli01/ansible-nexus3-oss/
+ansible/gitlab-config https://github.com/pli01/ansible-gitlab-config/
+ansible/ntp https://github.com/pli01/ansible-role-ntp/
+ansible/tinyproxy https://github.com/pli01/ansible-role-tinyproxy/
+ansible/docker-compose https://github.com/pli01/ansible-role-docker-compose/
+ansible/docker https://github.com/pli01/ansible-role-docker/
+ansible/systemd-service https://github.com/pli01/ansible-role-systemd-service/
+# service playbook
+ansible/docker-host https://github.com/pli01/ansible-docker-host/
+ansible/service-ci-tool-stack https://github.com/pli01/ansible-role-service-ci-tool-stack/
+# infra
+infra/openstack-heat https://github.com/pli01/openstack-heat-templates/
