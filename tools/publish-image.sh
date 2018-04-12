@@ -16,6 +16,11 @@
 #PYPI_HOST=$REPOSITORY_HOST
 #export MIRROR_DEBIAN MIRROR_DOCKER MIRROR_DOCKER_COMPOSE JENKINS_UC_URL PYPI_URL PYPI_HOST
 
+[ -z "$http_proxy" ] || http_proxy="$http_proxy"
+[ -z "$https_proxy" ] || https_proxy="$https_proxy"
+[ -z "$no_proxy" ] || no_proxy="$no_proxy"
+export http_proxy https_proxy no_proxy
+
 echo "# Publish"
 ( cd build/docker
   for image in * ; do
