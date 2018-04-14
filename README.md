@@ -2,7 +2,7 @@
 This repository contains ressources needed for building and running a Continous Integration Plateform.
 The set of Continuous Integration Tools Services are defined as docker-compose stack using docker images and deploy on docker hosts.
 
-This project is derived from "[docker-ci-tool-stack](https://github.com/marcelbirkner/docker-ci-tool-stack)" ideas
+This project is inspired from "[docker-ci-tool-stack](https://github.com/marcelbirkner/docker-ci-tool-stack)" ideas
 
 | *Components* | *Tools* | status |
 | ------------- | ------------- | ------------- |
@@ -22,7 +22,7 @@ Build steps will produce 3 directories
   * [ansible](ansible) roles and playbooks
   * [infra](infra) infrastructure definition
 
-Repositores dependencies are defined [requirements](requirements) files, and contains services and infrastructures components
+Repositores dependencies are defined in [requirements](requirements) files, and contains services and infrastructures components. Each services file are in other repositories
  * to build services
    * docker images
    * ansible roles and playbook to configure services
