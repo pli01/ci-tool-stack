@@ -1,8 +1,8 @@
 # ci-tool-stack
-This repository contains ressources needed for building and running a set of Continuous Integration Tools
-Services of the Continous Integration Plateform are defined as docker images in docker-compose stack, deploy on docker hosts
+This repository contains ressources needed for building and running a Continous Integration Plateform.
+The set of Continuous Integration Tools Services are defined as docker-compose stack using docker images and deploy on docker hosts.
 
-This project is derived from "`docker-ci-tool-stack repository`" ideas
+This project is derived from "`(docker-ci-tool-stack)[https://github.com/marcelbirkner/docker-ci-tool-stack]`" ideas
 
 | *Components* | *Tools* | status |
 | ------------- | ------------- | ------------- |
