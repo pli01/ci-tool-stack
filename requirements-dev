@@ -20,5 +20,6 @@ ansible/roles/docker-compose https://github.com/pli01/ansible-role-docker-compos
 ansible/roles/docker https://github.com/pli01/ansible-role-docker/
 ansible/roles/systemd-service https://github.com/pli01/ansible-role-systemd-service/
 ansible/roles/rsyslog https://github.com/pli01/ansible-role-rsyslog/
+ansible/roles/openstack-client https://github.com/pli01/ansible-role-openstack-client/
 # infra
 infra/openstack-heat https://github.com/pli01/openstack-heat-templates/

@@ -11,8 +11,7 @@ requirements=requirements-dev
 if [ ! -f $requirements ] ;then
    exit 1
 fi
-[ -d build ] && rm -rf build
-mkdir -p build
+[ -d build ] || mkdir -p build
 
 grep -v '^#' $requirements | awk  ' !  /^#/ { print $1, $2 } ' | while read name url ; do
   if [ -z "$name" -o -z "$url" ]; then
