@@ -24,6 +24,11 @@ grep -v '^#' $requirements | awk  ' !  /^#/ { print $1, $2 } ' | while read name
 
   echo "# Clone requirements $url in build/${name}"
   [ -d build/$name ] || ( cd build && git clone $url ${name} ) && ( cd build/$name && git pull --rebase )
+  ( cd build/$name ; git config --local --replace-all user.name pli01
+  git config --local --replace-all user.email pli01@github.com
+  git config --local --replace-all credential.username pli01
+  )
+
   echo "# Extracted in build/$name"
 
   if [ -d "$APP_ENV/${name}" ]; then
