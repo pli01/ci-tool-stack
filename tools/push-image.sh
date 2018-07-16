@@ -24,6 +24,8 @@ export http_proxy https_proxy no_proxy
 echo "# Push"
 ( cd build/docker
   for image in * ; do
+    [ -d "$image" ] || continue
+    echo "# Push $image"
     [ -d "$image" ] && ( cd $image && make push -n )
   done
 )

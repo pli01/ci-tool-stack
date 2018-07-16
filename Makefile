@@ -20,20 +20,28 @@ package:
 import:
 	APP_ENV=$(APP_ENV) bash -x ./$(tools_dir)/import.sh $(PACKAGENAME) $(VERSION)
 
-build:
+build: build-image build-service build-infra
 	APP_ENV=$(APP_ENV) bash -x ./$(tools_dir)/build.sh $(PACKAGENAME) $(VERSION)
 
 build-dev:
 	APP_ENV=$(APP_ENV) bash -x ./$(tools_dir)/build-dev.sh $(PACKAGENAME) $(VERSION)
 
-build-image:
+build-image: pull-image
 	APP_ENV=$(APP_ENV) bash -x ./$(tools_dir)/build-image.sh $(PACKAGENAME) $(VERSION)
+pull-image:
+	APP_ENV=$(APP_ENV) bash ./$(tools_dir)/pull-image.sh $(PACKAGENAME) $(VERSION)
 test-image:
 	APP_ENV=$(APP_ENV) bash -x ./$(tools_dir)/test-image.sh $(PACKAGENAME) $(VERSION)
 push-image:
 	APP_ENV=$(APP_ENV) bash -x ./$(tools_dir)/push-image.sh $(PACKAGENAME) $(VERSION)
 publish-image:
 	APP_ENV=$(APP_ENV) bash -x ./$(tools_dir)/publish-image.sh $(PACKAGENAME) $(VERSION)
+
+build-service:
+	APP_ENV=$(APP_ENV) bash -x ./$(tools_dir)/build-service.sh $(PACKAGENAME) $(VERSION)
+build-infra:
+	APP_ENV=$(APP_ENV) bash -x ./$(tools_dir)/build-infra.sh $(PACKAGENAME) $(VERSION)
+
 
 test:
 	APP_ENV=$(APP_ENV) bash -x ./$(tools_dir)/test.sh $(PACKAGENAME) $(VERSION)

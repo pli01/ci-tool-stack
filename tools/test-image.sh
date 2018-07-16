@@ -24,6 +24,8 @@ export http_proxy https_proxy no_proxy
 echo "# Build & test"
 ( cd build/docker
   for image in * ; do
+    [ -d "$image" ] || continue
+    echo "# Build & test $image"
     [ -d "$image" ] && ( cd $image && make test -n )
   done
 )

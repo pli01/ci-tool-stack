@@ -1,4 +1,5 @@
 #!/bin/bash
+set -ex
 
 ## TODO: extract in shell var
 #REGISTRY_HOST=localhost
@@ -24,6 +25,8 @@ export http_proxy https_proxy no_proxy
 echo "# Build"
 ( cd build/docker
   for image in * ; do
-    [ -d "$image" ] && ( cd $image && make rmi build )
+    [ -d "$image" ] || continue
+    echo "# Build $image"
+    ( cd $image && make rmi build )
   done
 )
