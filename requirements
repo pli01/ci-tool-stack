@@ -21,5 +21,6 @@ ansible/roles/docker https://github.com/pli01/ansible-role-docker/archive/master
 ansible/roles/systemd-service https://github.com/pli01/ansible-role-systemd-service/archive/master.tar.gz
 ansible/roles/rsyslog https://github.com/pli01/ansible-role-rsyslog/archive/master.tar.gz
 ansible/roles/openstack-client https://github.com/pli01/ansible-role-openstack-client/archive/master.tar.gz
+ansible/roles/logrotate https://github.com/pli01/ansible-role-logrotate/archive/master.tar.gz
 # infra
 infra/openstack-heat https://github.com/pli01/openstack-heat-templates/archive/master.tar.gz
