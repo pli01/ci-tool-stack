@@ -6,13 +6,13 @@ set -e
 [ -z "$no_proxy" ] || no_proxy="$no_proxy"
 export http_proxy https_proxy no_proxy
 
-echo "# Pull"
+echo "# Save"
 ( cd build/docker
   for image in * ; do
     [ -d "$image" ] || continue
-    echo "# Pull $image"
+    echo "# Save $image"
     ( cd $image ; 
-      make prepare pull-docker || { echo "BAD $image" ; exit 1 ; }
+      make prepare save-docker || { echo "BAD $image" ; exit 1 ; }
     )
   done
 )
