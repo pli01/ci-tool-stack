@@ -34,6 +34,9 @@ test-image:
 	APP_ENV=$(APP_ENV) bash -x ./$(tools_dir)/test-image.sh $(PACKAGENAME) $(VERSION)
 push-image:
 	APP_ENV=$(APP_ENV) bash -x ./$(tools_dir)/push-image.sh $(PACKAGENAME) $(VERSION)
+push-prereq-image:
+	APP_ENV=$(APP_ENV) bash -x ./$(tools_dir)/push-prereq-image.sh $(PACKAGENAME) $(VERSION)
+
 publish-image:
 	APP_ENV=$(APP_ENV) bash -x ./$(tools_dir)/publish-image.sh $(PACKAGENAME) $(VERSION)
 
