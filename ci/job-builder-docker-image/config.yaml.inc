@@ -1,0 +1,36 @@
+- nginx:
+    url: https://github.com/pli01/docker-nginx.git
+    version: ''
+    credential: ''
+- service-config:
+    url: https://github.com/pli01/docker-service-config.git
+    version: ''
+    credential: ''
+- jenkins:
+    url: https://github.com/pli01/docker-jenkins.git
+    version: ''
+    credential: ''
+- sonatype-nexus3:
+    url: https://github.com/pli01/docker-sonatype-nexus3.git
+    version: ''
+    credential: ''
+- gitlab-ce:
+    url: https://github.com/pli01/docker-gitlab-ce.git
+    version: ''
+    credential: ''
+- logstash:
+    url: https://github.com/pli01/docker-logstash.git
+    version: ''
+    credential: ''
+- elasticsearch:
+    url: https://github.com/pli01/docker-elasticsearch.git
+    version: ''
+    credential: ''
+- kibana:
+    url: https://github.com/pli01/docker-kibana.git
+    version: ''
+    credential: ''
+- fluentd:
+    url: https://github.com/pli01/docker-fluentd.git
+    version: ''
+    credential: ''

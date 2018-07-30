@@ -1,0 +1,50 @@
+- job-template:
+    name: 'job-{namespace}-test-{type}-{module}'
+    parameters:
+      - string:
+          name: PACKAGENAME
+          default: "{module}"
+          description: "parametre named PACKAGENAME, defaults to '{module}'."
+      - string:
+          name: TYPE
+          default: "{type}"
+          description: "parametre named TYPE, defaults to '{type}'."
+      - string:
+          name: VERSION
+          default: "{version}"
+          description: "parametre named VERSION, defaults to '{version}'."
+      - string:
+          name: URL
+          default: "{url}"
+          description: "parametre named URL, defaults to '{url}'."
+      - string:
+          name: REGISTRY_URL
+          default: "{registry_url}"
+          description: "parametre named REGISTRY_URL, defaults to '{registry_url}'."
+      - string:
+          name: REPOSITORY_HOST
+          default: "{repository_host}"
+          description: "parametre named REPOSITORY_HOST, defaults to '{repository_host}'."
+
+
+    wrappers:
+      - credentials-user-jenkins-build
+    publishers:
+      - send-mail:
+          email: "{email}"
+#      - trigger:
+#         project: 'job-{namespace}-package-{type}-{module}'
+#         threshold: SUCCESS
+    triggers:
+      - check-url-module-docker-image:
+          url: "{url}"
+          cron: "H/5 * * * *"
+    builders:
+      - print-template-name:
+          template-name: "{name}"
+          url: "{url}"
+          module: "{module}"
+      - build-config
+      - get-docker-image-from-archive
+      - run-tests-docker-image-from-archive
+      - package-docker-image-from-archive

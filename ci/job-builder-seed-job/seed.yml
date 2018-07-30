@@ -1,0 +1,64 @@
+- project:
+   name: builder-seed-job
+   namespace: ci-tool-stack
+   jobs:
+     - 'job-{namespace}-{name}'
+
+- job-template:
+    name: 'job-{namespace}-{name}'
+    parameters:
+    scm:
+      - repo-job-builder-seed-job
+    triggers:
+      - pollscm:
+          cron: "H/5 * * * *"
+    builders:
+# place here all job dir to populate
+      - ci-job-builder-seed-job-make:
+          JJB_JOBS: "job-builder-seed-job"
+      - ci-job-builder-seed-job-make:
+          JJB_JOBS: "job-builder-docker-image"
+#      - ci-job-builder-seed-job-make:
+#          JJB_JOBS: "job-builder-docker-image-from-archive"
+      - ci-job-builder-seed-job-make:
+          JJB_JOBS: "job-builder-services-ansible"
+      - ci-job-builder-seed-job-make:
+          JJB_JOBS: "job-builder-openstack-heat-templates"
+      - ci-job-builder-seed-job-make:
+          JJB_JOBS: "job-ci-tool-stack-plateforme-config"
+
+- defaults:
+    name: global
+    description: |
+      <p><b>Do not edit this job through the web</b></p>
+    project-type: freestyle
+    concurrent: false
+    block-downstream: true
+    block-upstream: true
+    logrotate:
+      daysToKeep: 1
+      numToKeep: 2
+      artifactDaysToKeep: -1
+      artifactNumToKeep: -1
+    wrappers:
+      - timestamps
+      - ansicolor
+      - workspace-cleanup
+      - mask-passwords
+
+- scm:
+    name: repo-job-builder-seed-job
+    scm:
+      - git:
+         url: https://github.com/pli01/ci-tool-stack
+         credentials-id: jenkins-build-id
+         basedir: job-builder-seed-job
+         branches:
+          - origin/master
+         wipe-workspace: true
+         skip-tag: true
+
+- builder:
+    name: ci-job-builder-seed-job-make
+    builders:
+      - shell: '( cd job-builder-seed-job && make JJB_JOBS={JJB_JOBS} JJB_USER=jenkins )'

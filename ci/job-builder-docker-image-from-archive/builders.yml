@@ -1,0 +1,32 @@
+- builder:
+    name: print-template-name
+    builders:
+      - shell: 'echo JJB template: {template-name} {url} {module}'
+
+- builder:
+    name: build-config
+    builders:
+      - shell:
+          !include-raw:
+             - scripts/build-config.sh
+
+- builder:
+    name: get-docker-image-from-archive
+    builders:
+      - shell:
+          !include-raw:
+             - scripts/get-docker-images-from-archive.sh
+
+- builder:
+    name: run-tests-docker-image-from-archive
+    builders:
+      - shell:
+          !include-raw:
+             - scripts/run-tests-docker-images-from-archive.sh
+
+- builder:
+    name: package-docker-image-from-archive
+    builders:
+      - shell:
+          !include-raw:
+             - scripts/package-docker-images-from-archive.sh

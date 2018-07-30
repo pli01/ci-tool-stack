@@ -1,0 +1,165 @@
+- job-template:
+    name: 'job-test-{module}-{plateforme}'
+    parameters:
+      - string:
+          name: APP_ENV
+          default: "{plateforme}"
+          description: "parametre named APP_ENV, defaults to '{plateforme}'."
+      - string:
+          name: PACKAGENAME
+          default: "{module}-{plateforme}"
+          description: "parametre named PACKAGENAME, defaults to '{module}-{plateforme}'."
+      - string:
+          name: VERSION
+          default: "{version}"
+          description: "parametre named VERSION, defaults to '{version}'."
+      - string:
+          name: DML_URL
+          default: "{dml_url}"
+          description: "parametre named DML_URL, defaults to '{dml_url}'."
+
+    wrappers:
+      - credentials-user-jenkins-build
+    publishers:
+#      - merge-master
+      - send-mail:
+          email: "{email}"
+      - trigger:
+         project: 'job-package-{module}-{plateforme}'
+         threshold: SUCCESS
+    scm:
+      - repo-plateforme-configuration:
+         url: '{git_repo}'
+         credential: '{credential}'
+         name: '{module}-{plateforme}'
+         git_web: '{git_web}'
+    triggers:
+      - pollscm:
+          cron: "H/5 * * * *"
+      - build-hourly
+    builders:
+      - print-template-name:
+          template-name: "{name}"
+          url: "{git_repo}"
+          module: "{module}-{plateforme}"
+      - run-ci-tool-stack-config
+
+- job-template:
+    name: 'job-package-{module}-{plateforme}'
+    parameters:
+      - string:
+          name: APP_ENV
+          default: "{plateforme}"
+          description: "parametre named APP_ENV, defaults to '{plateforme}'."
+      - string:
+          name: PACKAGENAME
+          default: "{module}-{plateforme}"
+          description: "parametre named PACKAGENAME, defaults to '{module}-{plateforme}'."
+      - string:
+          name: VERSION
+          default: "{version}"
+          description: "parametre named VERSION, defaults to '{version}'."
+      - string:
+          name: DML_URL
+          default: "{dml_url}"
+          description: "parametre named DML_URL, defaults to '{dml_url}'."
+
+    wrappers:
+      - credentials-user-jenkins-build
+    publishers:
+#      - merge-master
+      - send-mail:
+          email: "{email}"
+      - trigger:
+         project: 'job-provisionning-{module}-{plateforme}'
+         threshold: SUCCESS
+    scm:
+      - repo-plateforme-configuration:
+         url: '{git_repo}'
+         credential: '{credential}'
+         name: '{module}-{plateforme}'
+         git_web: '{git_web}'
+    builders:
+      - print-template-name:
+          template-name: "{name}"
+          url: "{git_repo}"
+          module: "{module}-{plateforme}"
+      - package-ci-tool-stack-config
+
+- job-template:
+    name: 'job-provisionning-{module}-{plateforme}'
+    disabled: '{disable_job}'
+    parameters:
+      - string:
+          name: APP_ENV
+          default: "{plateforme}"
+          description: "parametre named APP_ENV, defaults to '{plateforme}'."
+      - string:
+          name: PACKAGENAME
+          default: "{module}-{plateforme}"
+          description: "parametre named PACKAGENAME, defaults to '{module}-{plateforme}'."
+      - string:
+          name: VERSION
+          default: "{version}"
+          description: "parametre named VERSION, defaults to '{version}'."
+      - string:
+          name: FORCE
+          default: "{force_recreate}"
+          description: "parametre named FORCE, defaults to '{force_recreate}'."
+      - string:
+          name: DML_URL
+          default: "{dml_url}"
+          description: "parametre named DML_URL, defaults to '{dml_url}'."
+      - string:
+          name: URL
+          default: "{url}"
+          description: "parametre named URL, defaults to '{url}'."
+      - string:
+          name: OS_AUTH_URL
+          default: "{os_auth_url}"
+          description: "parametre named OS_AUTH_URL, defaults to '{os_auth_url}'."
+      - string:
+          name: OS_PROJECT_NAME
+          default: "{os_project_name}"
+          description: "parametre named OS_PROJECT_NAME, defaults to '{os_project_name}'."
+      - string:
+          name: OS_PROJECT_DOMAIN_NAME
+          default: "{os_project_domain_name}"
+          description: "parametre named OS_PROJECT_DOMAIN_NAME, defaults to '{os_project_domain_name}'."
+      - string:
+          name: OS_USER_DOMAIN_NAME
+          default: "{os_user_domain_name}"
+          description: "parametre named OS_USER_DOMAIN_NAME, defaults to '{os_user_domain_name}'."
+      - string:
+          name: OS_REGION_NAME
+          default: "{os_region_name}"
+          description: "parametre named OS_REGION_NAME, defaults to '{os_region_name}'."
+      - string:
+          name: OS_INTERFACE
+          default: "{os_interface}"
+          description: "parametre named OS_INTERFACE, defaults to '{os_interface}'."
+      - string:
+          name: OS_CACERT
+          default: "{os_cacert}"
+          description: "parametre named OS_CACERT, defaults to '{os_cacert}'."
+      - string:
+          name: OS_IDENTITY_API_VERSION
+          default: "{os_identity_api_version}"
+          description: "parametre named OS_IDENTITY_API_VERSION, defaults to '{os_identity_api_version}'."
+    wrappers:
+      - credentials-user-jenkins-build
+      - credentials-user-openstack-provisioner
+    publishers:
+      - send-mail:
+          email: "{email}"
+#    triggers:
+#      - check-url-ci-tool-stack-config:
+#          url: "{url}"
+#          cron: "H/5 * * * *"
+    builders:
+      - print-template-name:
+          template-name: "{name}"
+          url: "{git_repo}"
+          module: "{module}-{plateforme}"
+      - get-provisionning-from-archive
+      - provisionning-ci-tool-stack-config

@@ -1,0 +1,13 @@
+- project:
+   name: ci-tool-stack
+   type: configuration
+   module: ci-tool-stack-config
+   version: latest
+   plateforme:
+# Please add modules in config.yaml.inc
+     !include: config.yaml.inc
+   jobs:
+     - 'job-test-{module}-{plateforme}'
+     - 'job-package-{module}-{plateforme}'
+     - 'job-provisionning-{module}-{plateforme}':
+          disable_job: '{disable_job}'

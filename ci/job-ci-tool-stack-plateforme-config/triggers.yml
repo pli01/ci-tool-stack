@@ -1,0 +1,44 @@
+- trigger:
+    name: build-hourly
+    triggers:
+      - timed: "@hourly"
+- trigger:
+    name: check-url-ci-tool-stack-config
+    triggers:
+#      - pollurl:
+#          cron: "{cron}"
+#          polling-node: 'master'
+#          urls:
+#            - url: "{url}"
+##              proxy: true
+##              username: ''
+##              password: ''
+#              timeout: 400
+#              check-etag: false
+#              check-date: true
+#              check-content:
+#                - simple: true
+## Fix bug jenkins-job-builder avec plugin urltrigger recent (manque requestHeaders dans jjb)
+      - raw:
+          xml: |
+            <org.jenkinsci.plugins.urltrigger.URLTrigger>
+              <spec>{cron}</spec>
+              <labelRestriction>true</labelRestriction>
+              <triggerLabel>master</triggerLabel>
+              <entries>
+                <org.jenkinsci.plugins.urltrigger.URLTriggerEntry>
+                  <url>{url}</url>
+                  <proxyActivated>false</proxyActivated>
+                  <checkStatus>false</checkStatus>
+                  <statusCode>200</statusCode>
+                  <timeout>400</timeout>
+                  <checkETag>false</checkETag>
+                  <checkLastModificationDate>true</checkLastModificationDate>
+                  <inspectingContent>true</inspectingContent>
+                  <contentTypes>
+                    <org.jenkinsci.plugins.urltrigger.content.SimpleContentType/>
+                  </contentTypes>
+                  <requestHeaders/>
+                </org.jenkinsci.plugins.urltrigger.URLTriggerEntry>
+              </entries>
+            </org.jenkinsci.plugins.urltrigger.URLTrigger>

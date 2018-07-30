@@ -1,0 +1,36 @@
+- nginx:
+    version: ''
+    url: https://github.com/pli01/docker-nginx/archive/master.tar.gz
+    credential: ''
+- service-config:
+    version: ''
+    url: https://github.com/pli01/docker-service-config/archive/master.tar.gz
+    credential: ''
+- jenkins:
+    version: ''
+    url: https://github.com/pli01/docker-jenkins/archive/master.tar.gz
+    credential: ''
+- sonatype-nexus3:
+    version: ''
+    url: https://github.com/pli01/docker-sonatype-nexus3/archive/master.tar.gz
+    credential: ''
+- gitlab-ce:
+    version: ''
+    url: https://github.com/pli01/docker-gitlab-ce/archive/master.tar.gz
+    credential: ''
+- logstash:
+    version: ''
+    url: https://github.com/pli01/docker-logstash/archive/master.tar.gz
+    credential: ''
+- elasticsearch:
+    version: ''
+    url: https://github.com/pli01/docker-elasticsearch/archive/master.tar.gz
+    credential: ''
+- kibana:
+    version: ''
+    url: https://github.com/pli01/docker-kibana/archive/master.tar.gz
+    credential: ''
+- fluentd:
+    version: ''
+    url: https://github.com/pli01/docker-fluentd/archive/master.tar.gz
+    credential: ''

@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  jenkins-job-builder:
+    image: jenkins-job-builder:${VERSION:-latest}
+    build:
+      context: .
+      dockerfile: Dockerfile.${VERSION:-latest}
+      args:
+        - http_proxy=$http_proxy
+        - https_proxy=$https_proxy
+        - no_proxy=$no_proxy
+        - MIRROR_DEBIAN
+        - PYPI_URL
+        - PYPI_HOST
+#    volumes:
+#      - ./jobs-output:/opt/output/

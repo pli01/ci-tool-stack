@@ -1,0 +1,11 @@
+- project:
+   name: docker-image-from-archive
+   type: docker-image-from-archive
+   namespace: ci-tool-stack
+   registry_url: 192.168.1.1
+   repository_host: 192.168.1.1
+   module:
+# Please add modules in config.yaml.inc
+     !include: config.yaml.inc
+   jobs:
+    - 'job-{namespace}-test-{type}-{module}'

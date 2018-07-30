@@ -1,0 +1,14 @@
+- publisher:
+    name: send-mail
+    publishers:
+      - email:
+          recipients: "{email}"
+          send-to-individuals: true
+
+- publisher:
+    name: merge-master
+    publishers:
+      - git:
+          push-merge: true
+          push-only-if-success: true
+

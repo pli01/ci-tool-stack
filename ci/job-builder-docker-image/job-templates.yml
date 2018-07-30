@@ -1,0 +1,95 @@
+- job-template:
+    name: 'job-{namespace}-test-{type}-{module}'
+    parameters:
+      - string:
+          name: PACKAGENAME
+          default: "{module}"
+          description: "parametre named PACKAGENAME, defaults to '{module}'."
+      - string:
+          name: TYPE
+          default: "{type}"
+          description: "parametre named TYPE, defaults to '{type}'."
+      - string:
+          name: VERSION
+          default: "{version}"
+          description: "parametre named VERSION, defaults to '{version}'."
+      - string:
+          name: REGISTRY_URL
+          default: "{registry_url}"
+          description: "parametre named REGISTRY_URL, defaults to '{registry_url}'."
+      - string:
+          name: REPOSITORY_HOST
+          default: "{repository_host}"
+          description: "parametre named REPOSITORY_HOST, defaults to '{repository_host}'."
+
+    wrappers:
+      - credentials-user-jenkins-build
+    publishers:
+#      - merge-master
+      - send-mail:
+          email: "{email}"
+      - trigger:
+         project: 'job-{namespace}-package-{type}-{module}'
+         threshold: SUCCESS
+    scm:
+#      - repo-concepteur-modules-per-user:
+      - repo-concepteur-modules:
+         url: '{url}'
+         credential: '{credential}'
+         name: '{module}'
+    triggers:
+      - pollscm:
+          cron: "H/5 * * * *"
+    builders:
+      - print-template-name:
+          template-name: "{name}"
+          url: "{url}"
+          module: "{module}"
+      - build-config
+      - run-tests-docker-image
+
+- job-template:
+    name: 'job-{namespace}-package-{type}-{module}'
+    parameters:
+      - string:
+          name: PACKAGENAME
+          default: "{module}"
+          description: "parametre named PACKAGENAME, defaults to '{module}'."
+      - string:
+          name: TYPE
+          default: "{type}"
+          description: "parametre named TYPE, defaults to '{type}'."
+      - string:
+          name: VERSION
+          default: "{version}"
+          description: "parametre named VERSION, defaults to '{version}'."
+      - string:
+          name: TARGET_REPOSITORY
+          default: "{target_repository}"
+          description: "parametre named TARGET_REPOSITORY, defaults to '{target_repository}'."
+      - string:
+          name: REGISTRY_URL
+          default: "{registry_url}"
+          description: "parametre named REGISTRY_URL, defaults to '{registry_url}'."
+      - string:
+          name: REPOSITORY_HOST
+          default: "{repository_host}"
+          description: "parametre named REPOSITORY_HOST, defaults to '{repository_host}'."
+
+    wrappers:
+      - credentials-user-jenkins-build
+    publishers:
+      - send-mail:
+          email: "{email}"
+    scm:
+      - repo-concepteur-modules:
+         url: '{url}'
+         credential: '{credential}'
+         name: '{module}'
+    builders:
+      - print-template-name:
+          template-name: "{name}"
+          url: "{url}"
+          module: "{module}"
+      - build-config
+      - package-docker-image

@@ -1,0 +1,35 @@
+- scm:
+    name: repo-plateforme-configuration
+    scm:
+      - git:
+         url: '{url}'
+         credentials-id: '{credential}'
+         basedir: '{name}'
+         branches:
+          - origin/master
+         wipe-workspace: true
+         skip-tag: true
+         browser: gitlab
+         browser-url: '{git_web}'
+         browser-version: '8.8'
+
+#- scm:
+#    name: repo-concepteur-modules-per-user
+#    scm:
+#      - git:
+#         url: '{url}'
+#         credentials-id: '{credential}'
+#         basedir: '{name}'
+#         refspec: ''
+#         branches:
+#          - :origin/user/.*
+#         wipe-workspace: true
+#         skip-tag: true
+#         force-polling-using-workspace: true
+#         merge:
+#            remote: origin
+#            branch: master
+#            strategy: default
+#            fast-forward-mode: FF
+##         included-regions:
+##           - 'ansible/{module}/.*'

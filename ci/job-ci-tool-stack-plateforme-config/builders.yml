@@ -1,0 +1,31 @@
+- builder:
+    name: print-template-name
+    builders:
+      - shell: 'echo JJB template: {template-name} {url} {module}'
+
+- builder:
+    name: run-ci-tool-stack-config
+    builders:
+      - shell:
+          !include-raw:
+             - scripts/run-ci-tool-stack-config.sh
+- builder:
+    name: package-ci-tool-stack-config
+    builders:
+      - shell:
+          !include-raw:
+             - scripts/package-ci-tool-stack-config.sh
+
+- builder:
+    name: provisionning-ci-tool-stack-config
+    builders:
+      - shell:
+          !include-raw:
+             - scripts/provisionning-ci-tool-stack-config.sh
+
+- builder:
+    name: get-provisionning-from-archive
+    builders:
+      - shell:
+          !include-raw:
+             - scripts/get-provisionning-from-archive.sh

@@ -1,0 +1,14 @@
+#jenkins-job-builder==1.6.2
+jenkins-job-builder==2.0.9
+# explicit depencies for jenkins-job-builder
+PyYAML==3.12
+python-jenkins==0.4.16
+six==1.11.0
+pbr==4.0.0
+multi-key-dict==2.0.3
+# for jenkins-job-builder==2.0.9
+stevedore
+fasteners
+monotonic
+jinja2
+markupsafe
