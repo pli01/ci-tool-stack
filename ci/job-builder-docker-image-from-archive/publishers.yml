@@ -1,6 +1,0 @@
-- publisher:
-    name: send-mail
-    publishers:
-      - email:
-          recipients: "{email}"
-          send-to-individuals: true

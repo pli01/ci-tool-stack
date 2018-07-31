@@ -1,5 +1,5 @@
 - job-template:
-    name: 'job-test-{namespace}-{type}-{module}'
+    name: 'job-{namespace}-test-{type}-{module}'
     parameters:
       - string:
           name: PACKAGENAME
@@ -29,7 +29,7 @@
       - send-mail:
           email: "{email}"
       - trigger:
-         project: 'job-package-{namespace}-{type}-{module}'
+         project: 'job-{namespace}-package-{type}-{module}'
          threshold: SUCCESS
     scm:
 #      - repo-concepteur-modules-per-user:
@@ -46,10 +46,10 @@
           url: "{url}"
           module: "{module}"
       - build-config
-      - run-tests-services-ansible
+      - run-tests-{type}
 
 - job-template:
-    name: 'job-package-{namespace}-{type}-{module}'
+    name: 'job-{namespace}-package-{type}-{module}'
     parameters:
       - string:
           name: PACKAGENAME
@@ -92,4 +92,4 @@
           url: "{url}"
           module: "{module}"
       - build-config
-      - package-services-ansible
+      - package-{type}

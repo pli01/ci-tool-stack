@@ -1,0 +1,13 @@
+- builder:
+    name: run-tests-infra
+    builders:
+      - shell:
+          !include-raw:
+             - scripts/run-tests-openstack-heat-templates.sh
+
+- builder:
+    name: package-infra
+    builders:
+      - shell:
+          !include-raw:
+             - scripts/package-openstack-heat-templates.sh

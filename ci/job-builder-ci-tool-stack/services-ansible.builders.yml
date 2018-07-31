@@ -1,16 +1,4 @@
 - builder:
-    name: print-template-name
-    builders:
-      - shell: 'echo JJB template: {template-name} {url} {module}'
-
-- builder:
-    name: build-config
-    builders:
-      - shell:
-          !include-raw:
-             - scripts/build-config.sh
-
-- builder:
     name: run-tests-services-ansible
     builders:
       - shell:

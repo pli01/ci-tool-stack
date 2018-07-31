@@ -1,5 +1,5 @@
 - job-template:
-    name: 'job-{namespace}-test-{type}-{module}'
+    name: 'job-{namespace}-test-docker-image-from-archive-{module}'
     parameters:
       - string:
           name: PACKAGENAME
@@ -25,7 +25,6 @@
           name: REPOSITORY_HOST
           default: "{repository_host}"
           description: "parametre named REPOSITORY_HOST, defaults to '{repository_host}'."
-
 
     wrappers:
       - credentials-user-jenkins-build

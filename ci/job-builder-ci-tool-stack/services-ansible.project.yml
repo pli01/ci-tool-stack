@@ -1,13 +1,13 @@
 - project:
    name: services-ansible
-   type: ansible
-   namespace: service
+   type: services-ansible
+   namespace: ci-tool-stack
    target_repository: services-ansible
    registry_url: 192.168.1.1
    repository_host: 192.168.1.1
    module:
 # Please add modules in config.yaml.inc
-     !include: config.yaml.inc
+     !include: services-ansible.config.yaml.inc
    jobs:
-    - 'job-test-{namespace}-{type}-{module}'
-    - 'job-package-{namespace}-{type}-{module}'
+    - 'job-{namespace}-test-{type}-{module}'
+    - 'job-{namespace}-package-{type}-{module}'

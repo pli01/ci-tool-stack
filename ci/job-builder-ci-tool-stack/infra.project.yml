@@ -1,13 +1,13 @@
 - project:
    name: openstack-heat-templates
-   type: heat
-   namespace: infra
+   type: infra
+   namespace: ci-tool-stack
    target_repository: services-ansible
    registry_url: 192.168.1.1
    repository_host: 192.168.1.1
    module:
 # Please add modules in config.yaml.inc
-     !include: config.yaml.inc
+     !include: infra.config.yaml.inc
    jobs:
-    - 'job-test-{namespace}-{type}-{module}'
-    - 'job-package-{namespace}-{type}-{module}'
+    - 'job-{namespace}-test-{type}-{module}'
+    - 'job-{namespace}-package-{type}-{module}'
